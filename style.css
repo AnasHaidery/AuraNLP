@@ -1,0 +1,105 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    width: 60%;
+    margin: 60px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00e6e6;
+    text-shadow: 0 0 10px #00e6e6;
+}
+
+#chat-box {
+    height: 350px;
+    overflow-y: auto;
+    border: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    box-shadow: inset 0 0 8px rgba(255,255,255,0.2);
+    scroll-behavior: smooth;
+}
+
+.user, .bot {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 12px;
+    max-width: 75%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.user {
+    background: rgba(0, 150, 255, 0.3);
+    color: #fff;
+    text-align: right;
+    margin-left: auto;
+}
+
+.bot {
+    background: rgba(0, 255, 200, 0.3);
+    color: #fff;
+    text-align: left;
+    margin-right: auto;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #00e6e6, #00b3b3);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00b3b3, #009999);
+    transform: scale(1.05);
+}
+
+.sentiment {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-left: 8px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

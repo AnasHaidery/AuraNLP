@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AURA - Student Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h2>✨ AURA - Context-Aware Student Assistant</h2>
+        <div id="chat-box"></div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Ask me something..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+<script>
+async function sendMessage() {
+    let userText = document.getElementById("user-input").value;
+    if (!userText) return;
+
+    let chatBox = document.getElementById("chat-box");
+    chatBox.innerHTML += `<div class="user">🧑 You: ${userText}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    let response = await fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText })
+    });
+    let data = await response.json();
+
+    chatBox.innerHTML += `<div class="bot">🤖 AURA: ${data.reply} <span class="sentiment">(${data.sentiment})</span></div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    document.getElementById("user-input").value = "";
+}
+</script>
+</body>
+</html>
